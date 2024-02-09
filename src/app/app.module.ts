@@ -8,6 +8,10 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { PgDetailsComponent } from './pg-details/pg-details.component';
+import { HeaderComponent } from './header/header.component';
+import { GoogleMapsModule } from '@angular/google-maps'
+import { GoogleMapComponent } from './google-map/google-map.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,11 +19,15 @@ import { PgDetailsComponent } from './pg-details/pg-details.component';
     AboutComponent,
     FooterComponent,
     LoginComponent,
-    PgDetailsComponent
+    PgDetailsComponent,
+    HeaderComponent,
+    GoogleMapComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GoogleMapsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
