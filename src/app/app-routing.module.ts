@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
+import { ProximityComponent } from './proximity/proximity.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
   {
     path:'google',
     component:GoogleMapComponent
+  },
+  {path:'prox',
+   component:ProximityComponent
   }
 ];
 
