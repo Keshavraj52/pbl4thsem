@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LocationService } from '../location.service';
 
 @Component({
   selector: 'app-google-map',
@@ -6,22 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./google-map.component.css']
 })
 export class GoogleMapComponent {
+  title = 'user-location-angular';
+  location:any;
+  locationJs: any;
+  constructor(private commonService:LocationService){
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-  display : any;
-  center: google.maps.LatLngLiteral = {lat: 24, lng: 12};
-  zoom = 4;
-
-  moveMap(event: google.maps.MapMouseEvent) {
-    if(event.latLng!= null)
-    this.center = (event.latLng.toJSON());
   }
 
-  move(event: google.maps.MapMouseEvent) {
-    if(event.latLng != null)
-    this.display = event.latLng.toJSON();
+  ngOnInit(){
+    this.commonService.getLocation().subscribe((response)=>{
+      console.log(response);
+      this.location = response;
+    })
+
+    navigator.geolocation.getCurrentPosition((position)=>{
+      console.log(position);
+      this.locationJs = position.coords;
+    })
   }
 }

@@ -1,0 +1,21 @@
+<div class="add-product">
+    <h1>Click for Change: </h1>
+    <h3> Transforming Trash into Treasure</h3>
+   
+    <p class="success-message">{{addProductMessage}}</p>
+    <form #addproduct="ngForm" (ngSubmit)="submit(addproduct.value)" class="common-form">
+        <input type="text" class="form-input" placeholder="Enter Product Name" name="name" ngModel>
+        <input type="text" class="form-input" placeholder="Enter Product image url" name="image" ngModel>
+        <input type="text" class="form-input" placeholder="Enter latitude" name="latitude" ngModel>
+        <input type="text" class="form-input" placeholder="Enter longitude" name="longitude" ngModel> 
+        <input type="text" class="form-input" placeholder="Enter city" name="city" ngModel> 
+        <input type="file" class="form-input" name="url" ngModel>
+
+
+            <h1>Current Location</h1>
+            <p type="number" ngModel>Latitude: {{location?.latitude}}</p>
+            <p type="number" ngModel>Longitude: {{location?.longitude}}</p>
+            <p type="text" ngModel>City: {{location?.city}}</p>
+        <button class="form-button">Add image</button>
+    </form>
+</div>

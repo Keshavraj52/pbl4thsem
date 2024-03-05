@@ -1,12 +1,9 @@
+<div class="kesh">
+<h1>Current Location</h1>
+<p>Latitude: {{location?.latitude}}</p>
+<p>Longitude: {{location?.longitude}}</p>
+<p>City: {{location?.city}}</p>
 
-<!-- google-maps-demo.component.html -->
-<google-map height="400px"
-            width="750px"
-            [center]="center"
-            [zoom]="zoom"
-            (mapClick)="moveMap($event)"
-            (mapMousemove)="move($event)">
-</google-map>
-
-<div>Latitude: {{display?.lat}}</div>
-<div>Longitude: {{display?.lng}}</div>
+<h1>Current Location JS</h1>
+<p>Latitude: {{locationJs?.latitude}}</p>
+<p>Longitude: {{locationJs?.longitude}}</p></div>
