@@ -7,22 +7,24 @@ import { LocationService } from '../location.service';
   styleUrls: ['./google-map.component.css']
 })
 export class GoogleMapComponent {
-  title = 'user-location-angular';
-  location:any;
-  locationJs: any;
-  constructor(private commonService:LocationService){
 
+  lat: number = 0;
+  lng: number = 0;
+  dmsLat: string = '';
+  dmsLng: string = '';
+
+  convertToDMS(): void {
+    this.dmsLat = this.convertDecimalToDMS(this.lat, 'lat');
+    this.dmsLng = this.convertDecimalToDMS(this.lng, 'lng');
   }
 
-  ngOnInit(){
-    this.commonService.getLocation().subscribe((response)=>{
-      console.log(response);
-      this.location = response;
-    })
+  private convertDecimalToDMS(decimal: number, type: string): string {
+    const absolute = Math.abs(decimal);
+    const degrees = Math.floor(absolute);
+    const minutes = Math.floor((absolute - degrees) * 60);
+    const seconds = (absolute - degrees - minutes / 60) * 3600;
+    const direction = decimal >= 0 ? (type === 'lat' ? 'N' : 'E') : (type === 'lat' ? 'S' : 'W');
 
-    navigator.geolocation.getCurrentPosition((position)=>{
-      console.log(position);
-      this.locationJs = position.coords;
-    })
+    return `${degrees}° ${minutes}' ${seconds.toFixed(2)}" ${direction}`;
   }
 }

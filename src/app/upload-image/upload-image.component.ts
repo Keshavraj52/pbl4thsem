@@ -60,4 +60,5 @@ export class UploadImageComponent {
       reader.readAsDataURL(this.selectedFile);
     }
   }
+  
 }

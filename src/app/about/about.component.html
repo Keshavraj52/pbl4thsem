@@ -1,0 +1,62 @@
+<!-- latlong.component.html -->
+
+<div class="row">
+    <div class="col-7">
+      <div class="graybox padding10">
+        <!-- Existing HTML code -->
+  
+        <div class="col-4 m2">
+          <label for="lat">Latitude</label>
+          <input [(ngModel)]="lat" type="number" name="lat" id="lat" min="-1800" max="1800" step="0.0000001" placeholder="lat" required>
+        </div>
+  
+        <div class="col-4 m2">
+          <label for="lng">Longitude</label>
+          <input [(ngModel)]="lng" type="number" name="lng" id="lng" min="-1800" max="1800" step="0.0000001" placeholder="long" required>
+        </div>
+  
+        <div class="col-4">
+          <button (click)="convertToDMS()" title="Convert Lat Long to DMS" class="button margin38">Convert</button>
+        </div>
+  
+        <div class="col-4 m2">
+          <label for="dmslat">DMS Latitude</label>
+          <input [(ngModel)]="dmsLat" type="text" name="dmslat" id="dmslat" placeholder="DMS latitude" readonly>
+        </div>
+  
+        <div class="col-4 m2">
+          <label for="dmslng">DMS Longitude</label>
+          <input [(ngModel)]="dmsLng" type="text" name="dmslng" id="dmslng" placeholder="DMS longitude" readonly>
+        </div>
+  
+        <!-- Existing HTML code -->
+      </div>
+    </div>
+  
+    <!-- Existing HTML code -->
+  
+  </div>
+  <div class="row"></div>
+  <div id="latlongmap" style="width: 100%; height: 400px; margin: 5px 0px; position: relative; outline: none;" class="shadow leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
+    <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(-288px, -40px, 0px);">
+        <div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+            <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);">
+                <img alt="" role="presentation" src="https://c.tile.openstreetmap.org/2/1/1.png?bar" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(234px, -56px, 0px); opacity: 1;">
+                <img alt="" role="presentation" src="https://a.tile.openstreetmap.org/2/2/1.png?bar" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(490px, -56px, 0px); opacity: 1;">
+                <img alt="" role="presentation" src="https://a.tile.openstreetmap.org/2/1/2.png?bar" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(234px, 200px, 0px); opacity: 1;">
+                <img alt="" role="presentation" src="https://b.tile.openstreetmap.org/2/2/2.png?bar" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(490px, 200px, 0px); opacity: 1;">
+                <img alt="" role="presentation" src="https://b.tile.openstreetmap.org/2/0/1.png?bar" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-22px, -56px, 0px); opacity: 1;">
+                <img alt="" role="presentation" src="https://b.tile.openstreetmap.org/2/3/1.png?bar" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(746px, -56px, 0px); opacity: 1;">
+                <img alt="" role="presentation" src="https://c.tile.openstreetmap.org/2/0/2.png?bar" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-22px, 200px, 0px); opacity: 1;">
+                <img alt="" role="presentation" src="https://c.tile.openstreetmap.org/2/3/2.png?bar" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(746px, 200px, 0px); opacity: 1;">
+            </div>
+        </div>
+    </div>
+    <div class="leaflet-pane leaflet-shadow-pane"><img src="https://unpkg.com/leaflet@1.3.3/dist/images/marker-shadow.png" class="leaflet-marker-shadow leaflet-zoom-animated" alt="" style="margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(490px, 200px, 0px);"></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-marker-pane"><img src="https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(490px, 200px, 0px); z-index: 200;"></div>
+  <div class="leaflet-pane leaflet-tooltip-pane"></div>
+  <div class="leaflet-pane leaflet-popup-pane">
+    <div class="leaflet-popup  leaflet-zoom-animated" style="opacity: 1; transform: translate3d(491px, 166px, 0px); bottom: -7px; left: -72px;"><div class="leaflet-popup-content-wrapper"><div class="leaflet-popup-content" style="width: 104px;">0.000000,0.000000</div></div><div class="leaflet-popup-tip-container"><div class="leaflet-popup-tip"></div></div><a class="leaflet-popup-close-button" href="#close">×</a></div></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(512px, 512px, 0px) scale(2);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out">−</a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> | © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
+</div>
+</div>
+</div>
+</div>

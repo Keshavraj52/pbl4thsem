@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path:'upload',
     component:UploadImageComponent
+  },
+  {
+    path:'about',
+    component:AboutComponent
   }
 ];
 
