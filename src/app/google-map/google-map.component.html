@@ -1,32 +1,16 @@
 
-
 <div class="kesh"></div>
-
-
   <div class="add-product">
 <div class="common-from">
         <label class="common-input" for="lat">Latitude</label>
         <input class="common-input" [(ngModel)]="lat" type="number" name="lat" id="lat" min="-1800" max="1800" step="0.0000001" placeholder="lat" required>
-    
-
         <label for="lng">Longitude</label>
         <input [(ngModel)]="lng" type="number" name="lng" id="lng" min="-1800" max="1800" step="0.0000001" placeholder="long" required>
-   
-    
-
         <button class="common-input" (click)="convertToDMS()" title="Convert Lat Long to DMS" class="button margin38">Convert</button>
-  
-    
-      
         <label class="common-input" for="dmslat">DMS Latitude</label>
         <input class="common-input" [(ngModel)]="dmsLat" type="text" name="dmslat" id="dmslat" placeholder="DMS latitude" readonly>
-     
-    
-    
         <label class="common-input" for="dmslng">DMS Longitude</label>
         <input class="common-input" [(ngModel)]="dmsLng" type="text" name="dmslng" id="dmslng" placeholder="DMS longitude" readonly>
-   
-    
     </div>
 </div>
 <a class="common-input" href="https://www.google.com/maps">google map</a>
